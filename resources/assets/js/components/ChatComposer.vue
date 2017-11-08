@@ -1,13 +1,22 @@
 <template>
     <div class="chat-composer">
-        <input type="text" placeholder="Insert message">
-        <button class="btn btn-primary">Send</button>
+        <input type="text" placeholder="Insert message" v-model="messageText">
+        <button class="btn btn-primary" @click="sendMessage">Send</button>
     </div>
 </template>
 
 <script>
     export default {
-
+        data() {
+            return {
+                messageText: ''
+            }
+        },
+        methods: {
+            sendMessage() {
+                console.log('message sent')
+            }
+        }
     }
 </script>
 
