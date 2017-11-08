@@ -1,6 +1,6 @@
 <template>
     <div class="chat-composer">
-        <input type="text" placeholder="Insert message" v-model="messageText">
+        <input type="text" placeholder="Insert message" v-model="messageText" v-on:keyup.enter="sendMessage">
         <button class="btn btn-primary" @click="sendMessage">Send</button>
     </div>
 </template>
@@ -14,7 +14,8 @@
         },
         methods: {
             sendMessage() {
-                console.log('message sent')
+                console.log('message sent: ' + this.messageText)
+                this.messageText = ''
             }
         }
     }

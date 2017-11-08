@@ -43454,7 +43454,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         sendMessage: function sendMessage() {
-            console.log('message sent');
+            console.log('message sent: ' + this.messageText);
+            this.messageText = '';
         }
     }
 });
@@ -43480,6 +43481,15 @@ var render = function() {
       attrs: { type: "text", placeholder: "Insert message" },
       domProps: { value: _vm.messageText },
       on: {
+        keyup: function($event) {
+          if (
+            !("button" in $event) &&
+            _vm._k($event.keyCode, "enter", 13, $event.key)
+          ) {
+            return null
+          }
+          _vm.sendMessage($event)
+        },
         input: function($event) {
           if ($event.target.composing) {
             return
