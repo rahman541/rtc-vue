@@ -7,8 +7,8 @@
 <body>
 	<div id="app">
 		<h1>Chat App</h1>
-		<chat-log></chat-log>
-		<chat-composer></chat-composer>
+		<chat-log :messages="messages"></chat-log>
+		<chat-composer v-on:messagesent="addMessage"></chat-composer>
 	</div>
 	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>

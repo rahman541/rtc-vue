@@ -14,6 +14,10 @@
         },
         methods: {
             sendMessage() {
+                this.$emit('messagesent', {
+                    messsage: this.messageText,
+                    author: 'John Doe'
+                })
                 console.log('message sent: ' + this.messageText)
                 this.messageText = ''
             }
