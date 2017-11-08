@@ -1,17 +1,12 @@
 <template>
     <div class="">
-        <p>{{ message }}</p>
-        <small>{{ user }}</small>
+        <p>{{ message.message }}</p>
+        <small>{{ message.user }}</small>
     </div>
 </template>
 
 <script>
     export default {
-        data() {
-            return {
-                message: 'Example message text',
-                user: 'John Doe'
-            }
-        }
+        props: ['message']
     }
 </script>
