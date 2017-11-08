@@ -1406,22 +1406,27 @@ Vue.component('chat-log', __webpack_require__(50));
 Vue.component('chat-composer', __webpack_require__(53));
 
 var app = new Vue({
-  el: '#app',
-  data: {
-    messages: [{
-      message: 'Hello',
-      user: 'John Doe'
-    }, {
-      message: 'Hellol',
-      user: 'John Does'
-    }]
-  },
-  methods: {
-    addMessage: function addMessage(message) {
-      console.log(this.messages);
-      this.messages.push(message);
+    el: '#app',
+    data: {
+        messages: [{
+            message: 'Hello',
+            user: 'John Doe'
+        }, {
+            message: 'Hellol',
+            user: 'John Does'
+        }]
+    },
+    methods: {
+        addMessage: function addMessage(message) {
+            console.log(this.messages);
+            this.messages.push(message);
+        }
+    },
+    created: function created() {
+        axios.get('/messages').then(function (response) {
+            console.log(response);
+        });
     }
-  }
 });
 
 /***/ }),
