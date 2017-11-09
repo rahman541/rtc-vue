@@ -1,4 +1,5 @@
 <?php
+use App\Event\MessagePosted;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::post('/messages', function() {
 	$user->messages()->create([
 		'message' => request()->message
 	]);
+
+	event(new MessagePosted());
 
 	return ['status' => 'OK'];
 });
