@@ -1422,7 +1422,13 @@ var app = new Vue({
         axios.get('/messages').then(function (response) {
             _this.messages = response.data;
         });
-        Echo.private('chatroom');
+        Echo.join('chatroom')
+        // .here()
+        // .joining()
+        // .leaving()
+        .listen('MessagePosted', function (e) {
+            console.log(e);
+        });
     }
 });
 
@@ -1485,7 +1491,9 @@ window.Pusher = __webpack_require__(39);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: '19a30dc185a77a7eab00'
+  key: '19a30dc185a77a7eab00',
+  cluster: 'ap1',
+  encrypted: true
 });
 
 /***/ }),
