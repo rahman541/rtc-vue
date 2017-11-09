@@ -1413,6 +1413,7 @@ var app = new Vue({
     methods: {
         addMessage: function addMessage(message) {
             this.messages.push(message);
+            axios.post('/messages', message);
         }
     },
     created: function created() {

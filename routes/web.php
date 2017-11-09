@@ -24,6 +24,16 @@ Route::get('/messages', function() {
 	return App\Message::with('user')->get();
 });
 
+Route::post('/messages', function() {
+	$user = App\User::first();
+
+	$user->messages()->create([
+		'message' => request()->message
+	]);
+
+	return ['status' => 'OK'];
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
