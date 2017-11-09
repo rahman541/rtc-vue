@@ -18,15 +18,14 @@ Route::get('/', function () {
 
 Route::get('/chat', function() {
 	return view('chat');
-});
-// ->middleware('auth');
+})->middleware('auth');
 
 Route::get('/messages', function() {
 	return App\Message::with('user')->get();
-});
+})->middleware('auth');
 
 Route::post('/messages', function() {
-	$user = App\User::first();
+	$user = Auth::user();
 
 	$message = $user->messages()->create([
 		'message' => request()->message

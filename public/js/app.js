@@ -48567,7 +48567,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$emit('messagesent', {
                 message: this.messageText,
                 user: {
-                    name: 'John Doe'
+                    name: $('.navbar-right .dropdown-toggle').text()
                 }
             });
             this.messageText = '';
@@ -48593,7 +48593,7 @@ var render = function() {
           expression: "messageText"
         }
       ],
-      attrs: { type: "text", placeholder: "Insert message" },
+      attrs: { id: "message", type: "text", placeholder: "Insert message" },
       domProps: { value: _vm.messageText },
       on: {
         keyup: function($event) {
