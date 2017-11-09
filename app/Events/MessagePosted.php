@@ -9,19 +9,25 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use App\Message;
+use App\User;
 
 class MessagePosted
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public $message;
+    public $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Message $message, User $user)
     {
-        //
+        $this->message = $message;
+        $this->user = $user;
     }
 
     /**

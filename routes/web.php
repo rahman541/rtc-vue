@@ -28,11 +28,11 @@ Route::get('/messages', function() {
 Route::post('/messages', function() {
 	$user = App\User::first();
 
-	$user->messages()->create([
+	$message = $user->messages()->create([
 		'message' => request()->message
 	]);
 
-	event(new MessagePosted());
+	event(new MessagePosted($message, $user));
 
 	return ['status' => 'OK'];
 });
