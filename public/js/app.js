@@ -1427,7 +1427,10 @@ var app = new Vue({
         // .joining()
         // .leaving()
         .listen('MessagePosted', function (e) {
-            console.log(e);
+            _this.messages.push({
+                message: e.message.message,
+                user: e.user
+            });
         });
     }
 });

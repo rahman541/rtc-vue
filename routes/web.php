@@ -32,7 +32,7 @@ Route::post('/messages', function() {
 		'message' => request()->message
 	]);
 
-	event(new MessagePosted($message, $user));
+	broadcast(new MessagePosted($message, $user))->toOthers();
 
 	return ['status' => 'OK'];
 });

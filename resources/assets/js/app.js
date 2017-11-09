@@ -41,7 +41,10 @@ const app = new Vue({
             // .joining()
             // .leaving()
             .listen('MessagePosted', (e) => {
-                console.log(e)
+                this.messages.push({
+                    message: e.message.message,
+                    user: e.user
+                })
             })
     }
 });
