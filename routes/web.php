@@ -21,7 +21,7 @@ Route::get('/chat', function() {
 // ->middleware('auth');
 
 Route::get('/messages', function() {
-	return App\Message::all();
+	return App\Message::with('user')->get();
 });
 
 Auth::routes();

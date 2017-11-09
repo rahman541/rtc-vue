@@ -1,6 +1,9 @@
 <template>
     <div class="chat-log">
-        <chat-message v-for="message in messages" :key="message" :message="message"></chat-message>
+        <chat-message v-for="message in messages" :key="message.id" :message="message"></chat-message>
+        <div class="empty" v-show="messages.length === 0">
+            No new message
+        </div>
     </div>
 </template>
 
@@ -9,3 +12,14 @@
         props: ['messages']
     }
 </script>
+
+<style type="text/css">
+    .chat-log .chat-log:nth-child(even) {
+        background-color: #ccc;
+    }
+
+    .empty {
+        padding: 1rem;
+        text-align: center;
+    }
+</style>

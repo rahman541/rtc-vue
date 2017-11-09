@@ -24,25 +24,16 @@ const app = new Vue({
     el: '#app',
     data: {
     	messages: [
-    	    {
-    	        message: 'Hello',
-    	        user: 'John Doe'
-    	    },
-    	    {
-    	        message: 'Hellol',
-    	        user: 'John Does'
-    	    }
     	]
     },
     methods: {
     	addMessage(message) {
-    		console.log(this.messages)
     		this.messages.push(message)
     	}
     },
     created() {
         axios.get('/messages').then(response => {
-            console.log(response)
+            this.messages = response.data
         })
     }
 });
